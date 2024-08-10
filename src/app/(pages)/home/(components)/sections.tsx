@@ -104,7 +104,7 @@ export default function Sections() {
 
   return (
     <>
-      <section className="w-full h-[276px] rounded-t-3xl">
+      <section className="w-full h-fit rounded-t-3xl">
         <div className="w-full h-full grid grid-cols-4 gap-2 p-7 justify-center items-center">
           {sections.map((section, index) => (
             <div
@@ -122,7 +122,9 @@ export default function Sections() {
                 >
                   <div>{section.icon}</div>
                 </div>
-                <h5 className="text-center mt-1">{section.title}</h5>
+                <span className="block text-center mt-1 text-sm text-nowrap">
+                  {section.title}
+                </span>
               </Link>
             </div>
           ))}

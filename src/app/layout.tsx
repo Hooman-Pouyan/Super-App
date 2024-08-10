@@ -5,7 +5,10 @@ import localFont from "next/font/local";
 const inter = Inter({ subsets: ["latin"] });
 
 const YekanBakhFont = localFont({
-  src: "../../public/fonts/Farsi Numerals/Webfonts/woff/YekanBakhFaNum-Regular.woff",
+  src: "../../public/fonts/Farsi Numerals/Webfonts/woff/YekanBakhFaNum-Light.woff",
+  variable: "--font-yekanbakh",
+  display: "swap",
+  weight: "400",
 });
 
 export const metadata: Metadata = {

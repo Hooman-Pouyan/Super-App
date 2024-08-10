@@ -31,8 +31,8 @@ export default function Header() {
       </section>
       <section className="w-full px-10">
         <div className="flex items-center justify-between">
-          <div className="flex justify-between items-center gap-2">
-            <Wallet size={20} />
+          <div className="flex justify-between items-center gap-2 !text-sm">
+            <Wallet size={20}/>
             اعتبار کیف پول
           </div>
           <div className="flex justify-between items-center gap-2">
@@ -42,28 +42,33 @@ export default function Header() {
             </span>
           </div>
         </div>
-        <div className="mx-auto w-full h-[2px] rounded-md max-w-lg bg-slate-300 mt-3 shadow-sm"></div>
+        <div className="mx-auto w-full h-[2px] rounded-lg bg-opacity-90 max-w-lg bg-slate-300 mt-3 shadow-sm"></div>
       </section>
-      <section className="grid grid-cols-4 gap-4 -mt-5">
-        <div className="border-l-[1px] px-6 flex flex-col justify-center items-center space-y-2">
+      <section className="flex justify-center items-center gap-4 -mt-5 px-10">
+        <div className="px-6 py-2 rounded-md flex flex-col justify-center items-center space-y-2 hover:bg-slate-400 !bg-opacity-10 cursor-pointer">
           <div>
             <BadgeDollarSign />
           </div>
           <div className="font-light">افزایش</div>
         </div>
-        <div className="border-l-[1px] px-6 flex flex-col justify-center items-center space-y-2">
+        <div className="w-[1px] h-5/6 bg-slate-200 font-light antialiased rounded-lg bg-opacity-30"></div>
+        <div className="px-6 flex flex-col justify-center items-center space-y-2 hover:bg-slate-400 !bg-opacity-10 cursor-pointer rounded-md py-2">
           <div>
             <BadgeDollarSign />
           </div>
           <div className="font-light">برداشت</div>
         </div>
-        <div className="border-l-[1px] px-6 flex flex-col justify-center items-center space-y-2">
+        <div className="w-[1px] h-5/6 bg-slate-200 font-light antialiased rounded-lg bg-opacity-30"></div>
+
+        <div className="px-6 flex flex-col justify-center items-center space-y-2 hover:bg-slate-400 !bg-opacity-10 cursor-pointer rounded-md py-2">
           <div>
             <Trophy />
           </div>
           <div className="font-light">جشنواره</div>
         </div>
-        <div className="px-6 flex flex-col justify-center items-center space-y-2">
+        <div className="w-[1px] h-5/6 bg-slate-200 font-light antialiased rounded-lg bg-opacity-30"></div>
+
+        <div className="px-6 flex flex-col justify-center items-center space-y-2 hover:bg-slate-400 !bg-opacity-10 cursor-pointer rounded-md py-2">
           <div>
             <ArrowLeftRight />
           </div>

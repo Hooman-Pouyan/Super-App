@@ -8,16 +8,18 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 export function CarouselDemo() {
   return (
-    <Carousel className="w-full ">
-      <CarouselContent>
+    <Carousel className="w-full mt-5">
+      <h2 className="px-5 text-xl font-bold">تخفیفات داغ رو از دست نده</h2>
+      <CarouselContent className="rounded-lg">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem className="basis-2/3" key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+            <div className="p-3 h-48">
+              <Card className="bg-green-500 w-full h-full">
+                <CardContent className="flex aspect-square items-center justify-center">
                   <span className="text-4xl font-semibold">{index + 1}</span>
                 </CardContent>
               </Card>
@@ -25,8 +27,14 @@ export function CarouselDemo() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <Link
+        href="/home/sports"
+        className="!w-full text-left float-left p-5 cursor-pointer"
+      >
+        مشاهده همه
+      </Link>
+      {/* <CarouselPrevious /> */}
+      {/* <CarouselNext /> */}
     </Carousel>
   );
 }

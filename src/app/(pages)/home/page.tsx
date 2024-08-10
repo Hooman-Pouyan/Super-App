@@ -10,7 +10,8 @@ export default function Home() {
       <section className="relative rounded-t-3xl bg-white -mt-4 z-50">
         {Sections()}
       </section>
-      <section className="w-full !h-32 p-5 ">{CarouselDemo()}</section>
+      <section className="w-full h-full">{CarouselDemo()}</section>
+      <section className="w-full h-full">{CarouselDemo()}</section>
     </>
   );
 }

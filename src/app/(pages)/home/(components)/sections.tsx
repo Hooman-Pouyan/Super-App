@@ -8,7 +8,7 @@ export default function Sections() {
       title: "گردشگری",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#FF6B3C",
-      route: "./tourism",
+      route: "./servies/tourism",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -122,7 +122,7 @@ export default function Sections() {
                 >
                   <div>{section.icon}</div>
                 </div>
-                <span className="block text-center mt-1 text-sm text-nowrap">
+                <span className="block text-center mt-1 text-sm font-extrabold text-nowrap">
                   {section.title}
                 </span>
               </Link>

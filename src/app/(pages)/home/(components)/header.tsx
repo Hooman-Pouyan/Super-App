@@ -22,13 +22,10 @@ export default function Header() {
   //   }, []);
 
   return (
-    <div className="relative w-full h-[320px] bg-gradient-to-b text-white from-[#3168CA] to-[#054088] flex flex-col items-center justify-between gap-4 p-4">
+    <div className="relative w-full h-[320px] overflow-hidden bg-gradient-to-b text-white from-[#3168CA] to-[#054088] flex flex-col items-center justify-between gap-4 p-4">
       <section className="w-full flex justify-between items-start ">
         <button className="hover:text-slate-200">
-          <Link
-            className="w-full h-full"
-            href={!localStorage.getItem("AccessToekn") ? "auth/login" : "/"}
-          >
+          <Link className="w-full h-full" href={"auth/login"}>
             <CircleUserRound size={30} />
           </Link>
         </button>
@@ -52,7 +49,7 @@ export default function Header() {
         </div>
         <div className="mx-auto w-full h-[2px] rounded-lg bg-opacity-90 bg-slate-300 mt-3 shadow-sm"></div>
       </section>
-      <section className="flex justify-center items-center gap-4 -mt-5 px-12">
+      <section className="w-full flex justify-center items-center gap-1 -mt-5 lg:px-12 lg:gap-4">
         <div className="px-4 py-2 rounded-md flex flex-col justify-center items-center space-y-2 hover:bg-slate-400 !bg-opacity-10 cursor-pointer">
           <div>
             <BadgeDollarSign />

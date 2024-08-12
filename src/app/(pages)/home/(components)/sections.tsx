@@ -13,7 +13,7 @@ export default function Sections() {
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "تفریحی و ورزشگری",
+      title: "تفریحی",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#13BE65",
       route: "./services/sports",
@@ -37,7 +37,7 @@ export default function Sections() {
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "پرشکی و سلامت",
+      title: "پرشکی",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#25A1F9",
       route: "./services/healthcare",
@@ -45,7 +45,7 @@ export default function Sections() {
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "کافی شاپ و رستوران",
+      title: "رستوران",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#EC138D",
       route: "./services/resturants",
@@ -61,7 +61,7 @@ export default function Sections() {
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "خدمات فروشگاهی",
+      title: "فروشگاهی",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#E7344A",
       route: "./services/shopping",
@@ -122,7 +122,7 @@ export default function Sections() {
                 >
                   <div>{section.icon}</div>
                 </div>
-                <span className="block text-center mt-1 text-sm font-extrabold text-nowrap">
+                <span className="block text-center mt-1 text-sm font-extrabold text-wrap">
                   {section.title}
                 </span>
               </Link>

@@ -76,11 +76,6 @@ export default function Tourism() {
           return (
             <div key={index}>
               <div className="h-36 flex bg-slate-400 justify-center items-center p-5 rounded-md relative">
-                <Image
-                  src={segment.coverImage}
-                  alt={segment.label}
-                  className="absolute top-0 left-0"
-                />
                 <div>{segment.label}</div>
               </div>
             </div>

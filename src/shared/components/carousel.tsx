@@ -27,12 +27,12 @@ export function CarouselDemo({ classNames }: { classNames: string }) {
               <Card className="bg-slate-300 w-full h-full">
                 <CardContent className="flex aspect-square items-center justify-center">
                   {/* <span className="text-4xl font-semibold">{index + 1}</span> */}
-                  <Image
+                  {/* <Image
                     alt=""
                     src="/public/media/images/banners/1.png"
                     width={100}
                     height={100}
-                  ></Image>
+                  ></Image> */}
                 </CardContent>
               </Card>
             </div>

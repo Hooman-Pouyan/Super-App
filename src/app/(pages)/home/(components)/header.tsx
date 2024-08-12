@@ -40,9 +40,9 @@ export default function Header() {
             <Wallet size={20} />
             اعتبار کیف پول
           </div>
-          <div className="flex justify-between items-center gap-2">
-            {"124,234"}
-            <span>
+          <div className="flex justify-between items-center ml-2">
+            <span className="block mt-1">{"124,234"}</span>
+            <span className="block">
               <ChevronLeft size={20} />
             </span>
           </div>

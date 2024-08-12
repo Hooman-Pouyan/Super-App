@@ -19,7 +19,6 @@ export function CarouselDemo({ classNames }: { classNames: string }) {
       }}
       className="w-full mt-5 direction-reverse"
     >
-      <h2 className="px-5 text-xl font-bold">تخفیفات داغ رو از دست نده</h2>
       <CarouselContent className="rounded-lg !cursor-pointer">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem className={classNames} key={index}>
@@ -48,5 +47,6 @@ export function CarouselDemo({ classNames }: { classNames: string }) {
       {/* <CarouselPrevious /> */}
       {/* <CarouselNext /> */}
     </Carousel>
+    
   );
 }

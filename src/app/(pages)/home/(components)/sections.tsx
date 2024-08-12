@@ -136,7 +136,7 @@ export default function Sections() {
                 >
                   <div>{section.icon}</div>
                 </div>
-                <span className="block text-center mt-1 text-sm font-extrabold text-wrap">
+                <span className="block text-center mt-1 text-sm font-extrabold text-nowrap">
                   {section.title}
                 </span>
               </Link>

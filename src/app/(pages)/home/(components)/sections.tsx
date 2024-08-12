@@ -16,7 +16,7 @@ export default function Sections() {
       title: "تفریحی و ورزشگری",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#13BE65",
-      route: "./sports",
+      route: "./services/sports",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -24,7 +24,7 @@ export default function Sections() {
       title: "فیلم و سریال",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#FEC23B",
-      route: "./media",
+      route: "./services/media",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -32,7 +32,7 @@ export default function Sections() {
       title: "پرداخت قبض",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#28288E",
-      route: "./bill-payment",
+      route: "./services/bill-payment",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -40,7 +40,7 @@ export default function Sections() {
       title: "پرشکی و سلامت",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#25A1F9",
-      route: "./healthcare",
+      route: "./services/healthcare",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -48,7 +48,7 @@ export default function Sections() {
       title: "کافی شاپ و رستوران",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#EC138D",
-      route: "./restaurant",
+      route: "./services/resturants",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -56,7 +56,7 @@ export default function Sections() {
       title: "هنر و تیتار",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#13BE9F",
-      route: "./theater",
+      route: "./services/theater",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -64,7 +64,7 @@ export default function Sections() {
       title: "خدمات فروشگاهی",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#E7344A",
-      route: "./shopping",
+      route: "./services/shopping",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -72,7 +72,7 @@ export default function Sections() {
       title: "نیکوکاری",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#A347FF",
-      route: "./charity",
+      route: "./services/charity",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -80,7 +80,7 @@ export default function Sections() {
       title: "آموزشی",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#00C2FF",
-      route: "./educational",
+      route: "./services/educational",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -88,7 +88,7 @@ export default function Sections() {
       title: "موبایل",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#FF483C",
-      route: "./mobile",
+      route: "./services/mobile",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -96,7 +96,7 @@ export default function Sections() {
       title: "خودرو",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#17114D",
-      route: "./auto",
+      route: "./services/auto",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },

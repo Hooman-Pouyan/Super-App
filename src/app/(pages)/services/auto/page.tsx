@@ -1,14 +1,10 @@
 import { IServiceInfo } from "@/core/models/service.model";
 import { CarouselDemo } from "@/shared/components/carousel";
-import { House, Bell } from "lucide-react";
+import { Bell, House } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-interface Props {
-  children: React.ReactNode;
-  session: any;
-}
 
-export default function ServicesLayout({ children, session }: Props) {
+export default function Tourism() {
   const serviceInfo: IServiceInfo = {
     header: {
       title: "گردشگری",

@@ -28,13 +28,12 @@ export default function Service(
 ) {
   return (
     <>
-      <section
-        className="header px-8 w-full h-full"
-        style={{ backgroundColor: "red" }}
-      >
+      <section className="header text-red-600 bg-red-400 px-8 w-full h-full">
         {serviceInfo.header.title}
       </section>
-      <section className="banner px-8 w-full h-full">{CarouselDemo()}</section>
+      <section className="banner px-8 w-full h-full">
+        {CarouselDemo({ classNames: "basis-2/3" })}
+      </section>
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-2">
         {serviceInfo.segments.map((segment, index) => {
           return (

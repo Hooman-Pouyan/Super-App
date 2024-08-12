@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeftRight,
@@ -9,6 +11,7 @@ import {
   Trophy,
   Wallet,
 } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export default function Header() {
@@ -22,7 +25,12 @@ export default function Header() {
     <div className="relative w-full h-[320px] bg-gradient-to-b text-white from-[#3168CA] to-[#054088] flex flex-col items-center justify-between gap-4 p-4">
       <section className="w-full flex justify-between items-start ">
         <button className="hover:text-slate-200">
-          <CircleUserRound size={30} />
+          <Link
+            className="w-full h-full"
+            href={!localStorage.getItem("AccessToekn") ? "auth/login" : "/"}
+          >
+            <CircleUserRound size={30} />
+          </Link>
         </button>
         <div className="profile-image mt-2">{logo()}</div>
         <button className="hover:text-slate-200">

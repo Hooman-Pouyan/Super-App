@@ -110,6 +110,8 @@ export default function Home_() {
     //     </a>
     //   </div>
     // </main>
-    <>{Home()}</>
+    <>
+      <Home />
+    </>
   );
 }

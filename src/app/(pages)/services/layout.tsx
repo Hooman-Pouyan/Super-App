@@ -6,7 +6,8 @@ interface Props {
 export default function ServicesLayout({ children, session }: Props) {
   return (
     <>
-      <div className="w-full h-[137px]">{children}</div>
+      {children}
+      {/* <div className="w-full h-[137px]"></div> */}
     </>
   );
 }

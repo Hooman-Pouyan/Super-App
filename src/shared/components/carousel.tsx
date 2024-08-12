@@ -10,17 +10,22 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 
-export function CarouselDemo() {
+export function CarouselDemo({ classNames }: { classNames: string }) {
   return (
-    <Carousel className="w-full mt-5">
+    <Carousel
+      opts={{
+        direction: "rtl",
+      }}
+      className="w-full mt-5 direction-reverse"
+    >
       <h2 className="px-5 text-xl font-bold">تخفیفات داغ رو از دست نده</h2>
-      <CarouselContent className="rounded-lg">
+      <CarouselContent className="rounded-lg !cursor-pointer">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem className="basis-2/3" key={index}>
+          <CarouselItem className={classNames} key={index}>
             <div className="p-3 h-48">
-              <Card className="bg-green-500 w-full h-full">
+              <Card className="bg-slate-300 w-full h-full">
                 <CardContent className="flex aspect-square items-center justify-center">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                  {/* <span className="text-4xl font-semibold">{index + 1}</span> */}
                 </CardContent>
               </Card>
             </div>

@@ -8,7 +8,7 @@ export default function Sections() {
       title: "گردشگری",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#FF6B3C",
-      route: "./servies/tourism",
+      route: "./services/tourism",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
@@ -93,7 +93,7 @@ export default function Sections() {
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "موتور سیکلت و خودرو",
+      title: "خودرو",
       icon: <BadgeDollarSign size={50} color={"white"} />,
       color: "#17114D",
       route: "./auto",

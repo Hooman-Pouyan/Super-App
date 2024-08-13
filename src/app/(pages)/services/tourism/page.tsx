@@ -74,7 +74,7 @@ export default function Tourism() {
         />
       </section>
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-5">
-        {serviceInfo.segments.map((segment, index) => {
+        {serviceInfo.segments.map((segment: any, index: any) => {
           return (
             <div className="roudned-md" key={index}>
               <div className="h-36 flex bg-slate-400 justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60">

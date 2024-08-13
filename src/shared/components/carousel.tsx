@@ -11,7 +11,13 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export function CarouselDemo({ classNames }: { classNames: string }) {
+export function CarouselDemo({
+  classNames,
+  images,
+}: {
+  classNames: string;
+  images: any[];
+}) {
   return (
     <Carousel
       opts={{
@@ -20,26 +26,27 @@ export function CarouselDemo({ classNames }: { classNames: string }) {
       className="w-full mt-5 direction-reverse"
     >
       <CarouselContent className="rounded-lg !cursor-pointer">
-        {Array.from({ length: 5 }).map((_, index) => (
+        {images?.map((image, index) => (
           <CarouselItem className={classNames} key={index}>
-            <div className="p-3 h-48">
+            <div className="h-36">
               <Card className="bg-slate-300 w-full h-full">
-                <CardContent className="flex aspect-square items-center justify-center">
-                  {/* <span className="text-4xl font-semibold">{index + 1}</span> */}
-                  {/* <Image
-                    alt=""
-                    src="/public/media/images/banners/1.png"
-                    width={100}
-                    height={100}
-                  ></Image> */}
-                </CardContent>
+                {/* <CardContent className="flex aspect-square items-center justify-center"> */}
+                {/* <span className="text-4xl font-semibold">{index + 1}</span> */}
+                <Image
+                  className={"w-full h-full object-cover rounded-md"}
+                  src={image}
+                  alt="avatar"
+                  draggable={false}
+                ></Image>
+
+                {/* </CardContent> */}
               </Card>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
       <Link
-        href="/home/sports"
+        href="/"
         className="!w-full text-left float-left p-5 cursor-pointer"
       >
         مشاهده همه
@@ -47,6 +54,5 @@ export function CarouselDemo({ classNames }: { classNames: string }) {
       {/* <CarouselPrevious /> */}
       {/* <CarouselNext /> */}
     </Carousel>
-    
   );
 }

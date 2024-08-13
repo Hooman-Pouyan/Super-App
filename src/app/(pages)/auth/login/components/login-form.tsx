@@ -50,6 +50,7 @@ const FormSchema = z.object({
 export function LoginForm() {
   const [loginStep, setLoginStep] = useState("sendCode");
   const [userId, setUserId] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -83,11 +84,15 @@ export function LoginForm() {
   }
 
   async function handleSendCode(phoneNumber: string) {
+    setLoading(true);
+
     try {
       const response = await axiosInstance.post(
         "api/UserActivationCode/SendCode",
         { phoneNumber: phoneNumber }
       );
+
+      if (response.data) setLoading(false);
 
       setUserId(response.data.id);
       setLoginStep("verifyCode");
@@ -108,15 +113,20 @@ export function LoginForm() {
       toast({
         title: "Login failed",
       });
+      setLoading(false);
     }
   }
 
   async function handleVerifyCode(code: string) {
+    setLoading(true);
+
     try {
       const response = await axiosInstance.post(
         "api/UserActivationCode/VerifyCode",
         { id: userId, code: code }
       );
+
+      if (response.data) setLoading(false);
 
       localStorage.setItem("AccessToken", response.data);
       setLoginStep("setUpCredentials");
@@ -140,11 +150,6 @@ export function LoginForm() {
       });
     }
   }
-
-  useEffect(() => {
-    if (loginStep === "sendC") {
-    }
-  }, [loginStep]);
 
   return (
     <Form {...form}>
@@ -234,8 +239,8 @@ export function LoginForm() {
             )}
           />
         )}
-        <Button type="submit" className="w-full">
-          ورود
+        <Button disabled={isLoading} type="submit" className="w-full">
+          {isLoading ? "درحال بررسی" : "ورود"}
         </Button>
       </form>
     </Form>

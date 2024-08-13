@@ -9,7 +9,7 @@ export interface IServiceInfo {
 export interface IServiceBanner {
   label: string;
   content: string;
-  imageUrl: string;
+  image: string;
   link: string;
 }
 

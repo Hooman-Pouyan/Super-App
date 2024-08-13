@@ -1,17 +1,47 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { DropdownMenuShortcut } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
+} from "@radix-ui/react-dropdown-menu";
 import {
   ArrowLeftRight,
   BadgeDollarSign,
   Bell,
   ChevronLeft,
   CircleUserRound,
+  Cloud,
+  CreditCard,
   Ghost,
+  Github,
+  Keyboard,
+  LifeBuoy,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  PlusCircle,
+  Settings,
   Trophy,
+  User,
+  UserPlus,
+  Users,
   Wallet,
 } from "lucide-react";
+import local from "next/font/local";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Header() {
@@ -20,21 +50,50 @@ export default function Header() {
   //   React.useEffect(() => {
   //     setWalletBalance(Math.random() * 1000);
   //   }, []);
+  const router = useRouter();
+
+  function logout() {
+    localStorage?.removeItem("AccessToken");
+    window.location.reload();
+  }
 
   return (
     <div className="relative w-full h-[320px] overflow-hidden bg-gradient-to-b text-white from-[#3168CA] to-[#054088] flex flex-col items-center justify-between gap-4 p-4">
-      <section className="w-full flex justify-between items-start ">
-        <button className="hover:text-slate-200">
-          <Link className="w-full h-full" href={"auth/login"}>
-            <CircleUserRound size={30} />
-          </Link>
+      <section className="w-full flex justify-between items-start">
+        <button className="hover:text-slate-200 flex-1 flex justify-start items-center">
+          {typeof window !== "undefined" &&
+            localStorage?.getItem("AccessToken") && (
+              <DropdownMenu dir="rtl">
+                <DropdownMenuTrigger asChild>
+                  <div>{localStorage?.getItem("username")}</div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-32 -mt-[2px] mr-4 bg-slate-500 bg-opacity-45 justify-center items-center rounded-md py-1 space-y-3">
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="flex justify-between items-center w-full h-full space-x-1 p-2">
+                    <User className="" />
+                    <span>Profile</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="flex justify-between items-center w-full h-full space-x-1 p-2">
+                    <LogOut className="" />
+                    <span onClick={logout}>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+          {typeof window !== "undefined" &&
+            !localStorage?.getItem("AccessToken") && (
+              <Link className="w-full h-full" href={"auth/login"}>
+                <CircleUserRound size={30} />
+              </Link>
+            )}
         </button>
-        <div className="profile-image mt-2">{logo()}</div>
-        <button className="hover:text-slate-200">
+        <div className="profile-image mt-2 flex-2">{logo()}</div>
+        <button className="hover:text-slate-200 flex-1 flex justify-end items-center">
           <Bell size={30} />
         </button>
       </section>
-      <section className="w-full px-10">
+      <section className="w-full px-12">
         <div className="flex items-center justify-between">
           <div className="flex justify-between items-center gap-2 !text-sm">
             <Wallet size={20} />

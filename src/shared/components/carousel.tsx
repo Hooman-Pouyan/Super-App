@@ -28,7 +28,7 @@ export function CarouselDemo({
       <CarouselContent className="rounded-lg !cursor-pointer">
         {images?.map((image, index) => (
           <CarouselItem className={classNames} key={index}>
-            <div className="h-36">
+            <div className="h-36 lg:h-96">
               <Card className="bg-slate-300 w-full h-full">
                 {/* <CardContent className="flex aspect-square items-center justify-center"> */}
                 {/* <span className="text-4xl font-semibold">{index + 1}</span> */}

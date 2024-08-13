@@ -26,25 +26,25 @@ export default function Tourism() {
     segments: [
       {
         label: "رزرو هتل",
-        route: "banner 1",
+        route: "https://www.iranhotelonline.com/",
         icon: <Hotel size={30} />,
         coverImage: segment1 as any,
       },
       {
         label: "اجاره ویلا و سوییت",
-        route: "banner 1",
+        route: "https://www.shab.ir/",
         icon: <TentTree size={30} />,
         coverImage: segment2 as any,
       },
       {
         label: "بلیط قطار",
-        route: "banner 1",
+        route: "https://www.raja.ir/",
         icon: <TrainFront size={30} />,
         coverImage: segment3 as any,
       },
       {
         label: "بلیط هواپیما",
-        route: "banner 1",
+        route: "https://www.flytoday.ir/",
         icon: <Plane size={30} />,
         coverImage: segment4 as any,
       },
@@ -76,21 +76,27 @@ export default function Tourism() {
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-5">
         {serviceInfo.segments.map((segment: any, index: any) => {
           return (
-            <div className="roudned-md" key={index}>
-              <div className="h-36 flex bg-slate-400 justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60">
-                <Image
-                  className={
-                    "w-full h-full object-cover rounded-md absolute top-0 left-0"
-                  }
-                  src={segment.coverImage}
-                  alt="avatar"
-                  draggable={false}
-                ></Image>
-                <div className="flex flex-col w-full h-full justify-center items-center z-20 text-white font-extrabold text-[14px]">
-                  <div className="w-full h-full text-nowrap flex justify-center items-center">{segment.icon}</div>
-                  <div className="w-full h-full text-nowrap flex justify-center items-center -mt-10">{segment.label}</div>
+            <div className="!roudned-lg" key={index}>
+              <Link href={segment.route}>
+                <div className="h-36 flex bg-slate-400 overflow-hidden justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60 after:rounded-xl">
+                  <Image
+                    className={
+                      "w-full h-full object-cover rounded-md absolute top-0 left-0"
+                    }
+                    src={segment.coverImage}
+                    alt="avatar"
+                    draggable={false}
+                  ></Image>
+                  <div className="flex flex-col w-full h-full justify-center items-center z-20 text-white font-extrabold text-[14px]">
+                    <div className="w-full h-full text-nowrap flex justify-center items-center">
+                      {segment.icon}
+                    </div>
+                    <div className="w-full h-full text-nowrap flex justify-center items-center -mt-10">
+                      {segment.label}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}

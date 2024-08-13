@@ -25,18 +25,19 @@ import {
 } from "@/components/ui/input-otp";
 import { useRouter } from "next/navigation";
 import { ToastAction } from "@/components/ui/toast";
+import { log } from "console";
 
 const FormSchema = z.object({
   phoneNumber: z
     .string()
-    .min(10, {
-      message: "phoneNumber must be at least 2 characters.",
+    .min(11, {
+      message: "شمراه همراه معتبر نمیباشد",
     })
     .optional(),
   code: z
     .string()
     .max(5, {
-      message: "password must be at most 2 characters.",
+      message: "کد یک بار مصرف صحیح نمیباشد",
     })
     .optional(),
   username: z
@@ -80,6 +81,9 @@ export function LoginForm() {
       case "verifyCode":
         handleVerifyCode(form.getValues().code ?? "");
         break;
+      case "setUpCredentials":
+        handleCredentials(form.getValues().username ?? "");
+        break;
     }
   }
 
@@ -117,6 +121,11 @@ export function LoginForm() {
     }
   }
 
+  function handleCredentials(username: string) {
+    localStorage.setItem("username", username);
+    router.push("/");
+  }
+
   async function handleVerifyCode(code: string) {
     setLoading(true);
 
@@ -129,8 +138,10 @@ export function LoginForm() {
       if (response.data) setLoading(false);
 
       localStorage.setItem("AccessToken", response.data);
-      setLoginStep("setUpCredentials");
-      router.push("/");
+      if (localStorage.getItem("username")) router.push("/");
+      else setLoginStep("setUpCredentials");
+
+      // router.push("/");
 
       // Handle success (e.g., store token, redirect)
       toast({
@@ -210,37 +221,25 @@ export function LoginForm() {
         {loginStep == "setUpCredentials" && (
           <FormField
             control={form.control}
-            name="code"
+            name="username"
             render={({ field }) => (
-              <React.Fragment>
-                <div className="w-full flex flex-col justify-center items-start p-1 space-y-3">
-                  <div className="font-extrabold text-md">
-                    کد تایید را وارد کنید
-                  </div>
-                  <div>
-                    کد تایید 5 رقمی به {form.getValues().phoneNumber} ارسال شد.
-                  </div>
-                </div>
-                <FormItem className="w-full flex flex-col justify-center items-center -mt-5">
-                  <FormControl className="mx-auto">
-                    <InputOTP maxLength={6} {...field}>
-                      <InputOTPGroup className="flex flex-row-reverse">
-                        <InputOTPSlot index={0} />
-                        <InputOTPSlot index={1} />
-                        <InputOTPSlot index={2} />
-                        <InputOTPSlot index={3} />
-                        <InputOTPSlot index={4} />
-                      </InputOTPGroup>
-                    </InputOTP>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              </React.Fragment>
+              <FormItem className="w-full">
+                <FormLabel>نام کاربری</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
           />
         )}
+
         <Button disabled={isLoading} type="submit" className="w-full">
-          {isLoading ? "درحال بررسی" : "ورود"}
+          {isLoading && loginStep === "sendCode"
+            ? "در حال ارسال کد"
+            : isLoading && loginStep === "verifyCode"
+            ? "در حال تایید کد"
+            : "تایید"}
         </Button>
       </form>
     </Form>

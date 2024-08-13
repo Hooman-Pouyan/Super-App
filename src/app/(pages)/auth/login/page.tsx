@@ -33,14 +33,11 @@ export default function Login() {
         </div>
       </div>
 
-      <div className="w-full h-screen relative flex overflow-hidden justify-center items-start px-10 py-24 bg-gradient-to-br from-slate-300 to-blue-300">
+      <div className="w-full h-screen relative flex flex-col overflow-hidden justify-center items-end px-10 py-24 bg-gradient-to-br from-slate-300 to-blue-300">
         <div className="absolute scale-[2] left-[10rem] top-[26rem] lg:top-[20rem] lg:left-[55rem] w-full h-full z-0 pointer-events-none">
           <HeaderPattern fill="black" />
         </div>
-        <div className="z-10 w-full h-full flex justify-center items-start py-16">
-          <LoginForm />
-        </div>
-        <div>
+        <div className="float-left">
           <Link
             href="../"
             className="flex justify-end items-center p-1 space-x-3 float-left w-full"
@@ -52,6 +49,9 @@ export default function Login() {
               <Undo2 size={25} />
             </span>
           </Link>
+        </div>
+        <div className="z-10 w-full h-full flex justify-center items-start py-16">
+          <LoginForm />
         </div>
       </div>
     </>

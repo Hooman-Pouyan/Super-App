@@ -3,50 +3,75 @@ import { CarouselDemo } from "@/shared/components/carousel";
 import { Bell, Hotel, House, Plane, TentTree, TrainFront } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import mainbanner from "../../../../../public/media/images/tourism/1a01d32131c6222f6a9bc4590b9c3dbb.jpeg";
-import segment1 from "../../../../../public/media/images/tourism/0e8ea6caf6708cf7938f253acf18f4d6.png";
-import segment2 from "../../../../../public/media/images/tourism/23ff6245eb81e5129b605d05f0acfc5c.png";
-import segment3 from "../../../../../public/media/images/tourism/e25382d74399d1ebc4fa43cf039ff81d.png";
-import segment4 from "../../../../../public/media/images/tourism/f368da68375b68f8a819422523b7d7b0.png";
+import image1 from "../../../../../public/media/images/resturants/1.png";
+import image2 from "../../../../../public/media/images/resturants/2.png";
+import image3 from "../../../../../public/media/images/resturants/3.png";
+import image4 from "../../../../../public/media/images/resturants/4.png";
+import image5 from "../../../../../public/media/images/resturants/5.png";
+import image6 from "../../../../../public/media/images/resturants/6.png";
+import image7 from "../../../../../public/media/images/resturants/7.png";
+import banner from "../../../../../public/media/images/resturants/banner.png";
 
 export default function Tourism() {
   const serviceInfo: any = {
     header: {
-      title: "گردشگری",
-      color: "#FF6B3C",
+      title: "رستوران",
+      color: "#EC138D",
     },
     banners: [
       {
-        label: "banner 1",
+        label: "",
         content: "banner 1",
-        image: mainbanner as any,
+        image: banner as any,
         link: "",
       },
     ],
     segments: [
       {
-        label: "رزرو هتل",
-        route: "banner 1",
+        label: "فست فود",
+        route:
+          "https://food.snapp.ir/restaurant?category=7&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=fastfood",
         icon: <Hotel size={30} />,
-        coverImage: segment1 as any,
+        coverImage: image1 as any,
       },
       {
-        label: "اجاره ویلا و سوییت",
-        route: "banner 1",
+        label: "کافی شاپ",
+        route:
+          "https://food.snapp.ir/caffe?extra-filter=%7B%22vendor_collection%22:0,%22distance_sort%22:false,%22vendor_count_respect%22:false,%22vendor_collection_view_mode%22:%22%22,%22banner_collection%22:false,%22new_home%22:true,%22new_home_section%22:%22SERVICES%22,%22page_supertype%22:null,%22user_base_list%22:false,%22only_vendor_ids%22:null%7D&lat=35.774&long=51.418&mode=CURRENT&superType=2&item_type=services_see_more&item_position=homePage&item_name=services_see_more&item_detail_name=%DA%A9%D8%A7%D9%81%D9%87&item_rank=0&item_h_rank=2&item_code=2&utm_source=snapp&utm_medium=request-button&utm_campaign=coffeeshop",
         icon: <TentTree size={30} />,
-        coverImage: segment2 as any,
+        coverImage: image2 as any,
       },
       {
-        label: "بلیط قطار",
-        route: "banner 1",
+        label: "بوفه",
+        route:
+          "https://food.snapp.ir/restaurant?category=1&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=irani",
         icon: <TrainFront size={30} />,
-        coverImage: segment3 as any,
+        coverImage: image3 as any,
       },
       {
-        label: "بلیط هواپیما",
-        route: "banner 1",
-        icon: <Plane size={30} />,
-        coverImage: segment4 as any,
+        label: "کترینگ",
+        route: "",
+        icon: <TrainFront size={30} />,
+        coverImage: image4 as any,
+      },
+      {
+        label: "صبحانه",
+        route:
+          "https://food.snapp.ir/restaurant?category=14&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=beynolmelali",
+        icon: <TrainFront size={30} />,
+        coverImage: image5 as any,
+      },
+      {
+        label: "غذای ایرانی و سنتی",
+        route: "",
+        icon: <TrainFront size={30} />,
+        coverImage: image6 as any,
+      },
+      {
+        label: "غذای ملل",
+        route: "",
+        icon: <TrainFront size={30} />,
+        coverImage: image7 as any,
       },
     ],
   };
@@ -68,33 +93,32 @@ export default function Tourism() {
       </section>
       <div className="relative w-full h-5 rounded-t-3xl -mt-5 z-50 bg-white"></div>
       <section className="banner px-8 w-full h-full">
-        <CarouselDemo
-          images={[mainbanner]}
-          classNames="basis-full px-3 rounded-md"
-        />
+        <CarouselDemo images={[banner]} classNames="basis-full rounded-md" />
       </section>
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-5">
         {serviceInfo.segments.map((segment: any, index: any) => {
           return (
-            <div className="roudned-md" key={index}>
-              <div className="h-36 flex bg-slate-400 justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60">
-                <Image
-                  className={
-                    "w-full h-full object-cover rounded-md absolute top-0 left-0"
-                  }
-                  src={segment.coverImage}
-                  alt="avatar"
-                  draggable={false}
-                ></Image>
-                <div className="flex flex-col w-full h-full justify-center items-center z-20 text-white font-extrabold text-[14px]">
-                  <div className="w-full h-full text-nowrap flex justify-center items-center">
-                    {segment.icon}
-                  </div>
-                  <div className="w-full h-full text-nowrap flex justify-center items-center -mt-10">
-                    {segment.label}
+            <div className="!roudned-lg" key={index}>
+              <Link href={segment.route}>
+                <div className="h-36 flex bg-slate-400 overflow-hidden justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60 after:rounded-xl">
+                  <Image
+                    className={
+                      "w-full h-full object-cover rounded-md absolute top-0 left-0"
+                    }
+                    src={segment.coverImage}
+                    alt="avatar"
+                    draggable={false}
+                  ></Image>
+                  <div className="flex flex-col w-full h-full justify-center items-center z-20 text-white font-extrabold text-[14px]">
+                    <div className="w-full h-full text-nowrap flex justify-center items-center">
+                      {segment.icon}
+                    </div>
+                    <div className="w-full h-full text-nowrap flex justify-center items-center -mt-10">
+                      {segment.label}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}

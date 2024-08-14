@@ -28,7 +28,7 @@ export default function Tourism() {
         label: "رزرو هتل",
         route: "https://www.iranhotelonline.com/",
         icon: <Hotel size={30} />,
-        coverImage: segment1 as any,
+        coverImage: segment4 as any,
       },
       {
         label: "اجاره ویلا و سوییت",
@@ -46,7 +46,7 @@ export default function Tourism() {
         label: "بلیط هواپیما",
         route: "https://www.flytoday.ir/",
         icon: <Plane size={30} />,
-        coverImage: segment4 as any,
+        coverImage: segment1 as any,
       },
     ],
   };
@@ -70,7 +70,7 @@ export default function Tourism() {
       <section className="banner px-8 w-full h-full">
         <CarouselDemo
           images={[mainbanner]}
-          classNames="basis-full px-3 rounded-md"
+          classNames="basis-full rounded-md"
         />
       </section>
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-5">

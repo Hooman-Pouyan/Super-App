@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/input-otp";
 import { useRouter } from "next/navigation";
 import { ToastAction } from "@/components/ui/toast";
-import { log } from "console";
 
 const FormSchema = z.object({
   phoneNumber: z
@@ -122,7 +121,11 @@ export function LoginForm() {
   }
 
   function handleCredentials(username: string) {
-    localStorage.setItem("username", username);
+    const userdata = {
+      username: username,
+      phone: form.getValues().phoneNumber,
+    };
+    localStorage.setItem("userdata", JSON.stringify(userdata));
     router.push("/");
   }
 
@@ -138,10 +141,19 @@ export function LoginForm() {
       if (response.data) setLoading(false);
 
       localStorage.setItem("AccessToken", response.data);
-      if (localStorage.getItem("username")) router.push("/");
-      else setLoginStep("setUpCredentials");
 
-      // router.push("/");
+      if (JSON.parse(localStorage.getItem("userdata")!)) {
+        if (
+          JSON.parse(localStorage.getItem("userdata")!).phone ==
+          form.getValues().phoneNumber
+        ) {
+          router.push("/");
+        } else {
+          setLoginStep("setUpCredentials");
+        }
+      } else {
+        setLoginStep("setUpCredentials");
+      }
 
       // Handle success (e.g., store token, redirect)
       toast({

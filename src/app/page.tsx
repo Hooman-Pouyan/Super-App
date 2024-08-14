@@ -2,6 +2,8 @@ import Image from "next/image";
 import Home from "./(pages)/home/page";
 
 export default function Home_() {
+  console.log('NEXT_PUBLIC_API_URL', process.env.NEXT_PUBLIC_API_URL);
+
   return (
     // <main className="flex min-h-screen flex-col items-center justify-between p-24">
     //   <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

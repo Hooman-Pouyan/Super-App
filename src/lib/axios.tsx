@@ -1,7 +1,8 @@
 import axios from "axios";
+import { env } from "process";
 
 const axiosInstance = axios.create({
-  baseURL: process.env["NEXT_PUBLIC_BASEURL"],
+  baseURL: env.NEXT_PUBLIC_API_URL ?? "https://wadood-backend.liara.run/",
   withCredentials: true,
 });
 

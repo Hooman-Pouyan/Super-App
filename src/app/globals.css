@@ -6,3 +6,7 @@
 body {
       overflow-x: hidden;
 }
+
+.shadow-custom {
+      box-shadow: 2px 10px 5px 0px black;
+}

@@ -11,7 +11,7 @@ export default function Tourism() {
   const activatedRoute = usePathname();
   const serviceInfo: any = {
     header: {
-      title: "خودرو و موتور سیکلت",
+      title: "موتور سیکلت و خودرو",
       color: "#17114D",
     },
     banners: [

@@ -12,7 +12,7 @@ export default function Tourism() {
 
   const serviceInfo: any = {
     header: {
-      title: "گردشگری",
+      title: "تفریحی و ورزشی",
       color: "#13BE65",
     },
     banners: [

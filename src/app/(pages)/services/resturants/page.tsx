@@ -12,7 +12,7 @@ export default function Tourism() {
   const activatedRoute = usePathname();
   const serviceInfo: any = {
     header: {
-      title: "رستوران",
+      title: "کافی شاپ و رستوران",
       color: "#EC138D",
     },
     banners: [

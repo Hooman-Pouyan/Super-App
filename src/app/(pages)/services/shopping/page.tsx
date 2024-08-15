@@ -8,12 +8,11 @@ import { Bell, Hotel, House, Plane, TentTree, TrainFront } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Tourism() {
   const activatedRoute = usePathname();
   const serviceInfo: any = {
     header: {
-      title: "فروشگاهی",
+      title: "خدمات فروشگاهی",
       color: "#E7344A",
     },
     banners: [],

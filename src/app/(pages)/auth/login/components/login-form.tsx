@@ -28,7 +28,7 @@ import { ToastAction } from "@/components/ui/toast";
 
 const FormSchema = z.object({
   phoneNumber: z
-    .string()
+    .string() // Force it to be a number
     .min(11, {
       message: "شمراه همراه معتبر نمیباشد",
     })
@@ -39,11 +39,32 @@ const FormSchema = z.object({
       message: "کد یک بار مصرف صحیح نمیباشد",
     })
     .optional(),
-  username: z
+  FullName: z
     .string()
     .max(16, {
-      message: "password must be at most 2 characters.",
+      message: "نام کاربری باید حداکثر 16 کاراکتر باشد",
     })
+    // .min(5, {
+    //   message: "نام کاربری باید حداقل 3 کاراکتر باشد",
+    // })
+    .optional(),
+  ConfirmPassword: z
+    .string()
+    .max(16, {
+      message: "رمز عبور باید حداکثر 16 کاراکتر باشد",
+    })
+    // .min(8, {
+    //   message: "رمز عبور باید حداقل 8 کاراکتر باشد",
+    // })
+    .optional(),
+  password: z
+    .string()
+    .max(16, {
+      message: "رمز عبور باید حداکثر 16 کاراکتر باشد",
+    })
+    // .min(8, {
+    //   message: "رمز عبور باید حداقل 8 کاراکتر باشد",
+    // })
     .optional(),
 });
 
@@ -59,19 +80,14 @@ export function LoginForm() {
     defaultValues: {
       phoneNumber: "",
       code: "",
-      username: "",
+      FullName: "",
+      password: "",
+      ConfirmPassword: "",
     },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    console.log("xcxczxcxzc");
 
     switch (loginStep) {
       case "sendCode":
@@ -81,12 +97,14 @@ export function LoginForm() {
         handleVerifyCode(form.getValues().code ?? "");
         break;
       case "setUpCredentials":
-        handleCredentials(form.getValues().username ?? "");
+        handleCredentials();
         break;
     }
   }
 
   async function handleSendCode(phoneNumber: string) {
+    console.log("asaas");
+
     setLoading(true);
 
     try {
@@ -99,34 +117,57 @@ export function LoginForm() {
 
       setUserId(response.data.id);
       setLoginStep("verifyCode");
-
-      // Handle success (e.g., store token, redirect)
-      // toast({
-      //   title: "Login successful",
-      //   description: (
-      //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-      //       <code className="text-white">
-      //         {JSON.stringify(response.data, null, 2)}
-      //       </code>
-      //     </pre>
-      //   ),
-      // });
     } catch (error) {
+      setLoading(false);
+
       // Handle error (e.g., show error message)
       toast({
         title: "Login failed",
       });
-      setLoading(false);
     }
   }
 
-  function handleCredentials(username: string) {
+  async function handleCredentials() {
+    setLoading(true);
     const userdata = {
-      username: username,
-      phone: form.getValues().phoneNumber,
+      Id: userId,
+      Code: form.getValues().code,
+      FullName: form.getValues().FullName,
+      ConfirmPassword: form.getValues().ConfirmPassword,
     };
-    localStorage.setItem("userdata", JSON.stringify(userdata));
-    router.push("/");
+
+    try {
+      const response = await axiosInstance.post(
+        "api/UserActivationCode/ForgotPassword",
+        userdata
+      );
+
+      if (response.data) setLoading(false);
+      localStorage.setItem("AccessToken", response.data);
+      localStorage.setItem("fullName", form.getValues().FullName!);
+
+      if (JSON.parse(localStorage.getItem("userdata")!)) {
+        if (
+          JSON.parse(localStorage.getItem("userdata")!).Id ==
+          form.getValues().phoneNumber
+        ) {
+          router.push("/");
+        } else {
+          setLoginStep("setUpCredentials");
+        }
+      } else {
+        setLoginStep("setUpCredentials");
+      }
+
+      router.push("/");
+    } catch (error) {
+      setLoading(false);
+
+      // Handle error (e.g., show error message)
+      toast({
+        title: "Login failed",
+      });
+    }
   }
 
   async function handleVerifyCode(code: string) {
@@ -140,21 +181,12 @@ export function LoginForm() {
 
       if (response.data) setLoading(false);
 
-      localStorage.setItem("AccessToken", response.data);
-
-      if (JSON.parse(localStorage.getItem("userdata")!)) {
-        if (
-          JSON.parse(localStorage.getItem("userdata")!).phone ==
-          form.getValues().phoneNumber
-        ) {
-          router.push("/");
-        } else {
-          setLoginStep("setUpCredentials");
-        }
-      } else {
-        setLoginStep("setUpCredentials");
+      if (!response.data.fullName) setLoginStep("setUpCredentials");
+      else {
+        localStorage.setItem("AccessToken", response.data.jwtToken);
+        localStorage.setItem("fullName", response.data.fullName);
+        router.push("/");
       }
-
       // Handle success (e.g., store token, redirect)
       toast({
         title: "Login successful",
@@ -167,6 +199,8 @@ export function LoginForm() {
         ),
       });
     } catch (error) {
+      setLoading(false);
+
       // Handle error (e.g., show error message)
       toast({
         title: "Login failed",
@@ -231,19 +265,47 @@ export function LoginForm() {
           />
         )}
         {loginStep == "setUpCredentials" && (
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel>نام کاربری</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <React.Fragment>
+            <FormField
+              control={form.control}
+              name="FullName"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>نام و نام خانوادگی</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>رمز عبور</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="ConfirmPassword"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>تايید رمز عبور</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </React.Fragment>
         )}
 
         <Button disabled={isLoading} type="submit" className="w-full">

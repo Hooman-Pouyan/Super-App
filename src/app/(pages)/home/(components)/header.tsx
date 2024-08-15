@@ -54,6 +54,7 @@ export default function Header() {
 
   function logout() {
     localStorage?.removeItem("AccessToken");
+    localStorage?.removeItem("fullName");
     window.location.reload();
   }
 
@@ -65,9 +66,7 @@ export default function Header() {
             localStorage?.getItem("AccessToken") && (
               <DropdownMenu dir="rtl">
                 <DropdownMenuTrigger asChild>
-                  <div>
-                    {JSON.parse(localStorage?.getItem("userdata")!)?.username!}
-                  </div>
+                  <div>{localStorage?.getItem("fullName")}</div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-32 -mt-[2px] mr-4 bg-slate-500 bg-opacity-45 justify-center items-center rounded-md py-1 space-y-3">
                   <DropdownMenuSeparator />

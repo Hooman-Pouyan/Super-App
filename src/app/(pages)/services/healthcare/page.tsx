@@ -11,7 +11,7 @@ export default function Tourism() {
   const activatedRoute = usePathname();
   const serviceInfo: any = {
     header: {
-      title: "پرشکی",
+      title: "پزشکی و سلامت",
       color: "#25A1F9",
     },
     banners: [

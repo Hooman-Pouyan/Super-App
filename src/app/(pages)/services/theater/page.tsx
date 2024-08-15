@@ -12,7 +12,7 @@ export default function Tourism() {
 
   const serviceInfo: any = {
     header: {
-      title: "هنر و تیتار",
+      title: "هنر و تئاتر",
       color: "#13BE9F",
     },
     banners: [

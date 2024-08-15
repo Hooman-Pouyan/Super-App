@@ -48,7 +48,7 @@ export function CarouselDemo({
       </CarouselContent>
       <Link
         href="/"
-        className="!w-full text-left float-left p-5 cursor-pointer"
+        className="!w-full text-left float-left p-5 cursor-pointer text-xs text-green-600"
       >
         مشاهده همه
       </Link>

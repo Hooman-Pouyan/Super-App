@@ -26,19 +26,19 @@ export default function Tourism() {
     segments: [
       {
         label: "باشگاه ورزشی",
-        route: "https://www.iranhotelonline.com/",
+        route: "",
         icon: <Hotel size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/1.png",
       },
       {
         label: "استخر و ورزش های آبی",
-        route: "https://www.shab.ir/",
+        route: "https://www.poolticket.org/",
         icon: <TentTree size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/2.png",
       },
       {
         label: "شهر بازی و مراکز تفریحی",
-        route: "https://www.raja.ir/",
+        route: "",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/3.png",
       },

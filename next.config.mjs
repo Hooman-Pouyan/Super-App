@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
       env: {
-            NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://wadood-backend.liara.run/",
-            cdn: "https://cdn.wadood.online/"
+            baseurl: process.env.NEXT_PUBLIC_API_URL,
+            cdn: process.env.NEXT_PUBLIC_CDN
       },
       images: {
             remotePatterns: [

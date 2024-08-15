@@ -20,15 +20,29 @@ export default function Sections() {
   const sections = [
     {
       title: "گردشگری",
-      icon: <Briefcase size={50} color={"white"} />,
+      icon: (
+        <Briefcase
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#FF6B3C",
       route: "./services/tourism",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "تفریحی",
-      icon: <TreePalm size={50} color={"white"} />,
+      title: "تفریحی و ورزشی",
+      icon: (
+        <TreePalm
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#13BE65",
       route: "./services/sports",
       description:
@@ -36,7 +50,14 @@ export default function Sections() {
     },
     {
       title: "فیلم و سریال",
-      icon: <Clapperboard size={50} color={"white"} />,
+      icon: (
+        <Clapperboard
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#FEC23B",
       route: "./services/media",
       description:
@@ -44,39 +65,64 @@ export default function Sections() {
     },
     {
       title: "پرداخت قبض",
-      icon: <Receipt size={50} color={"white"} />,
+      icon: (
+        <Receipt fontWeight={3} absoluteStrokeWidth size={40} color={"white"} />
+      ),
       color: "#28288E",
       route: "./services/bill-payment",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "پرشکی",
-      icon: <Stethoscope size={50} color={"white"} />,
+      title: "پزشکی و سلامت",
+      icon: (
+        <Stethoscope
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#25A1F9",
       route: "./services/healthcare",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "رستوران",
-      icon: <Utensils size={50} color={"white"} />,
+      title: "کافی شاپ و رستوران",
+      icon: (
+        <Utensils
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#EC138D",
       route: "./services/resturants",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "هنر و تیتار",
-      icon: <Palette size={50} color={"white"} />,
+      title: "هنر و تئاتر",
+      icon: (
+        <Palette fontWeight={3} absoluteStrokeWidth size={40} color={"white"} />
+      ),
       color: "#13BE9F",
       route: "./services/theater",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "فروشگاهی",
-      icon: <ShoppingBag size={50} color={"white"} />,
+      title: "خدمات فروشگاهی",
+      icon: (
+        <ShoppingBag
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#E7344A",
       route: "./services/shopping",
       description:
@@ -84,7 +130,14 @@ export default function Sections() {
     },
     {
       title: "نیکوکاری",
-      icon: <HeartHandshake size={50} color={"white"} />,
+      icon: (
+        <HeartHandshake
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#A347FF",
       route: "./services/charity",
       description:
@@ -92,7 +145,14 @@ export default function Sections() {
     },
     {
       title: "آموزشی",
-      icon: <BookCopy size={50} color={"white"} />,
+      icon: (
+        <BookCopy
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#00C2FF",
       route: "./services/educational",
       description:
@@ -100,15 +160,24 @@ export default function Sections() {
     },
     {
       title: "موبایل",
-      icon: <TabletSmartphone size={50} color={"white"} />,
+      icon: (
+        <TabletSmartphone
+          fontWeight={3}
+          absoluteStrokeWidth
+          size={40}
+          color={"white"}
+        />
+      ),
       color: "#FF483C",
       route: "./services/mobile",
       description:
         "افزایش کیف پول با استفاده از دارو های موجود در سیستم شما و افزایش میزان پرداخت و برداشت کیف پول با توجه به نوع داروهای موجود در سیستم شما",
     },
     {
-      title: "خودرو",
-      icon: <Car size={50} color={"white"} />,
+      title: "موتور سیکلت و خودرو",
+      icon: (
+        <Car fontWeight={3} absoluteStrokeWidth size={40} color={"white"} />
+      ),
       color: "#17114D",
       route: "./services/auto",
       description:
@@ -136,7 +205,7 @@ export default function Sections() {
                 >
                   <div>{section.icon}</div>
                 </div>
-                <span className="block text-center mt-1 text-sm font-extrabold text-nowrap">
+                <span className="block text-center mt-1 text-[10px] text-nowrap">
                   {section.title}
                 </span>
               </Link>

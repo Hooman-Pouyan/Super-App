@@ -1,12 +1,15 @@
+"use client";
 import { IServiceInfo } from "@/core/models/service.model";
+import { usePathname } from "next/navigation";
+import ImageLoader from "@/lib/utils/image-loader";
 import { CarouselDemo } from "@/shared/components/carousel";
 import { Bell, Hotel, House, Plane, TentTree, TrainFront } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import image1 from "../../../../../public/media/images/bill-payment/1.png";
-import banner from "../../../../../public/media/images/bill-payment/banner.png";
 
 export default function Tourism() {
+  const activatedRoute = usePathname();
+
   const serviceInfo: any = {
     header: {
       title: "پرداخق قبض",
@@ -16,7 +19,7 @@ export default function Tourism() {
       {
         label: "",
         content: "banner 1",
-        image: banner as any,
+        image: activatedRoute.split("/")[2] + "/banner.png",
         link: "",
       },
     ],
@@ -25,7 +28,7 @@ export default function Tourism() {
         label: "پرداخت قبض",
         route: "https://sadadpsp.ir/bill",
         icon: <Hotel size={30} />,
-        coverImage: image1 as any,
+        coverImage: activatedRoute.split("/")[2] + "/1.png",
       },
     ],
   };
@@ -47,7 +50,10 @@ export default function Tourism() {
       </section>
       <div className="relative w-full h-5 rounded-t-3xl -mt-5 z-50 bg-white"></div>
       <section className="banner px-8 w-full h-full">
-        <CarouselDemo images={[banner]} classNames="basis-full rounded-md" />
+        <CarouselDemo
+          images={[serviceInfo.banners[0].image]}
+          classNames="basis-full rounded-md"
+        />
       </section>
       <section className="segments px-8 w-full h-full grid grid-cols-2 gap-5">
         {serviceInfo.segments.map((segment: any, index: any) => {
@@ -55,14 +61,12 @@ export default function Tourism() {
             <div className="!roudned-lg" key={index}>
               <Link href={segment.route}>
                 <div className="h-36 flex bg-slate-400 overflow-hidden justify-center items-center p-5 rounded-lg relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-60 after:rounded-xl">
-                  <Image
-                    className={
+                  <ImageLoader
+                    classnames={
                       "w-full h-full object-cover rounded-md absolute top-0 left-0"
                     }
                     src={segment.coverImage}
-                    alt="avatar"
-                    draggable={false}
-                  ></Image>
+                  />
                   <div className="flex flex-col w-full h-full justify-center items-center z-20 text-white font-extrabold text-[14px]">
                     <div className="w-full h-full text-nowrap flex justify-center items-center">
                       {segment.icon}

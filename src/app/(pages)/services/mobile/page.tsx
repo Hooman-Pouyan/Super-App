@@ -1,9 +1,7 @@
-import { IServiceInfo } from "@/core/models/service.model";
-import { CarouselDemo } from "@/shared/components/carousel";
+"use client";
+import ImageLoader from "@/lib/utils/image-loader";
 import { Bell, Hotel, House, Plane, TentTree, TrainFront } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import banner from "../../../../../public/media/images/mobile/banner.png";
 
 export default function Tourism() {
   const serviceInfo: any = {
@@ -17,7 +15,7 @@ export default function Tourism() {
         label: "خرید شارژ  و بسته های اینترنتی",
         route: "https://mci.ir/internet-planshttps://top.ir/charges",
         icon: <Hotel size={30} />,
-        coverImage: banner as any,
+        coverimage: "mobile" + "/banner.png",
       },
     ],
   };
@@ -39,7 +37,10 @@ export default function Tourism() {
       </section>
       <div className="relative w-full h-5 rounded-t-3xl -mt-5 z-50 bg-white"></div>
       {/* <section className="banner px-8 w-full h-full">
-        <CarouselDemo images={[banner]} classNames="basis-full rounded-md" />
+                <CarouselDemo
+          images={[serviceInfo.banners[0].image]}
+          classNames="basis-full rounded-md"
+        />
       </section> */}
       <section className="segments px-8 w-full h-full flex flex-col">
         {serviceInfo.segments.map((segment: any, index: any) => {
@@ -47,12 +48,10 @@ export default function Tourism() {
             <div className="!roudned-lg" key={index}>
               <Link href={segment.route}>
                 <div className="h-fit flex flex-col overflow-hidden justify-center items-center p-2 mt-5 rounded-lg relative">
-                  <Image
-                    className={"w-full h-52 object-cover rounded-t-md -z-10"}
-                    src={segment.coverImage}
-                    alt="avatar"
-                    draggable={false}
-                  ></Image>
+                  <ImageLoader
+                    classnames="w-full h-52 object-cover rounded-t-md -z-10"
+                    src={"mobile/banner.png"}
+                  />
                   <div className="flex w-full h-full justify-between items-center shadow-md bg-white z-20 font-extrabold text-[14px] bg-transparent text-black p-7 rounded-b-xl">
                     <div>{segment.label}</div>
                     <div className="text-green-600 text-nowrap">مشاهده</div>

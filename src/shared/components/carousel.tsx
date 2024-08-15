@@ -10,13 +10,16 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import Image from "next/image";
+import ImageLoader from "@/lib/utils/image-loader";
 
 export function CarouselDemo({
   classNames,
   images,
+  isHome,
 }: {
   classNames: string;
   images: any[];
+  isHome?: boolean;
 }) {
   return (
     <Carousel
@@ -32,13 +35,11 @@ export function CarouselDemo({
               <Card className="bg-slate-300 w-full h-full">
                 {/* <CardContent className="flex aspect-square items-center justify-center"> */}
                 {/* <span className="text-4xl font-semibold">{index + 1}</span> */}
-                <Image
-                  className={"w-full h-full object-cover rounded-md"}
+                <ImageLoader
+                  classnames="w-full h-full object-cover rounded-md"
                   src={image}
-                  alt="avatar"
-                  draggable={false}
-                ></Image>
-
+                  isHome={isHome}
+                />
                 {/* </CardContent> */}
               </Card>
             </div>

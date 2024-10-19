@@ -32,7 +32,7 @@ export default function Tourism() {
       },
       {
         label: "کنسرت",
-        route: "iranconcert.com",
+        route: "https://www.iranconcert.com/",
         icon: <TentTree size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/2.png",
       },

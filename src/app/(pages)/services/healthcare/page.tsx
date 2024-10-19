@@ -37,13 +37,13 @@ export default function Tourism() {
       },
       {
         label: "ماساژ",
-        route: "https://vandafitness.com/",
+        route: "https://spahana.com/",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/3.png",
       },
       {
         label: "تناسب اندام و لاغری",
-        route: "https://www.paziresh24.com/s/ir/exp-dentistry/",
+        route: "https://vandafitness.com",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/4.png",
       },

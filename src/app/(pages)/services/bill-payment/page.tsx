@@ -26,7 +26,7 @@ export default function Tourism() {
     segments: [
       {
         label: "پرداخت قبض",
-        route: "https://sadadpsp.ir/bill",
+        route: "https://ghabzino.com/bills",
         icon: <Hotel size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/1.png",
       },

@@ -31,7 +31,7 @@ export default function Tourism() {
       },
       {
         label: "کامپیوتر",
-        route: "",
+        route: "https://pouyaandish.com/icdl/",
         icon: <TentTree size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/2.png",
       },
@@ -58,12 +58,6 @@ export default function Tourism() {
         route: "https://tadbirtp.ir/",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/7.png",
-      },
-      {
-        label: "مهارت های فردی",
-        route: "",
-        icon: <TrainFront size={30} />,
-        coverImage: activatedRoute.split("/")[2] + "/6.png",
       },
     ],
   };

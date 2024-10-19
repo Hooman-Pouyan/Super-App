@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/toaster";
 
 const YekanBakhFontLight = localFont({
   src: "../../public/fonts/Farsi Numerals/Webfonts/woff/YekanBakhFaNum-Light.woff",
@@ -24,7 +25,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="./favicon.webp" sizes="any" />
       </head>
-      <body className={YekanBakhFontLight.className}>{children}</body>
+      <body className={YekanBakhFontLight.className}>
+        <main>{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }

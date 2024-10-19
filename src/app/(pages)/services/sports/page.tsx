@@ -26,7 +26,7 @@ export default function Tourism() {
     segments: [
       {
         label: "باشگاه ورزشی",
-        route: "",
+        route: "https://www.varzeshkar.com/",
         icon: <Hotel size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/1.png",
       },
@@ -36,12 +36,12 @@ export default function Tourism() {
         icon: <TentTree size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/2.png",
       },
-      {
-        label: "شهر بازی و مراکز تفریحی",
-        route: "",
-        icon: <TrainFront size={30} />,
-        coverImage: activatedRoute.split("/")[2] + "/3.png",
-      },
+      // {
+      //   label: "شهر بازی و مراکز تفریحی",
+      //   route: "",
+      //   icon: <TrainFront size={30} />,
+      //   coverImage: activatedRoute.split("/")[2] + "/3.png",
+      // },
     ],
   };
   return (

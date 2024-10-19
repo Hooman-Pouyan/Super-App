@@ -121,9 +121,6 @@ export function LoginForm() {
       setLoading(false);
 
       // Handle error (e.g., show error message)
-      toast({
-        title: "Login failed",
-      });
     }
   }
 
@@ -136,13 +133,40 @@ export function LoginForm() {
       ConfirmPassword: form.getValues().ConfirmPassword,
     };
 
+    if (form.getValues().ConfirmPassword !== form.getValues().password) {
+      toast({
+        variant: "destructive",
+        title: "رمز عبور و تایید رمز عبور مطابقت ندارند",
+        action: (
+          <ToastAction
+            altText="Try again"
+            onClick={() => {
+              form.setValue("password", "");
+              form.setValue("ConfirmPassword", "");
+            }}
+          >
+            تلاش مجدد
+          </ToastAction>
+        ),
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await axiosInstance.post(
         "api/UserActivationCode/ForgotPassword",
         userdata
       );
 
-      if (response.data) setLoading(false);
+      if (response.data) {
+        setLoading(false);
+        toast({
+          variant: "default",
+          style: { backgroundColor: "#15BE65", color: "white" },
+          title: `${form.getValues().FullName} عزیز خوش آمدید`,
+        });
+      }
       localStorage.setItem("AccessToken", response.data);
       localStorage.setItem("fullName", form.getValues().FullName!);
 
@@ -183,27 +207,24 @@ export function LoginForm() {
 
       if (!response.data.fullName) setLoginStep("setUpCredentials");
       else {
+        console.log(response.data.fullName);
+        const fullname = response.data.fullName;
+        toast({
+          variant: "default",
+          style: { backgroundColor: "#15BE65", color: "white" },
+          title: `${fullname} عزیز خوش آمدید`,
+        });
         localStorage.setItem("AccessToken", response.data.jwtToken);
         localStorage.setItem("fullName", response.data.fullName);
         router.push("/");
       }
       // Handle success (e.g., store token, redirect)
-      toast({
-        title: "Login successful",
-        description: (
-          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-            <code className="text-white">
-              {JSON.stringify(response.data, null, 2)}
-            </code>
-          </pre>
-        ),
-      });
     } catch (error) {
       setLoading(false);
 
       // Handle error (e.g., show error message)
       toast({
-        title: "Login failed",
+        title: "کد یک بار مصرف اشتباه است",
       });
     }
   }

@@ -7,7 +7,6 @@ import { Bell, Hotel, House, Plane, TentTree, TrainFront } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Tourism() {
   const activatedRoute = usePathname();
   const serviceInfo: any = {
@@ -38,35 +37,37 @@ export default function Tourism() {
         icon: <TentTree size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/2.png",
       },
-      {
-        label: "بوفه",
-        route:
-          "https://food.snapp.ir/restaurant?category=1&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=irani",
-        icon: <TrainFront size={30} />,
-        coverImage: activatedRoute.split("/")[2] + "/3.png",
-      },
-      {
-        label: "کترینگ",
-        route: "",
-        icon: <TrainFront size={30} />,
-        coverImage: activatedRoute.split("/")[2] + "/4.png",
-      },
+      // {
+      //   label: "بوفه",
+      //   route:
+      //     "https://food.snapp.ir/restaurant?category=1&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=irani",
+      //   icon: <TrainFront size={30} />,
+      //   coverImage: activatedRoute.split("/")[2] + "/3.png",
+      // },
+      // {
+      //   label: "کترینگ",
+      //   route: "",
+      //   icon: <TrainFront size={30} />,
+      //   coverImage: activatedRoute.split("/")[2] + "/4.png",
+      // },
       {
         label: "صبحانه",
         route:
-          "https://food.snapp.ir/restaurant?category=14&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=beynolmelali",
+          "https://food.snapp.ir/restaurant?category=33&page=0&section=SERVICES&superType=1&utm_campaign=beynolmelali&utm_medium=categories&utm_source=foodlanding",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/5.png",
       },
       {
         label: "غذای ایرانی و سنتی",
-        route: "",
+        route:
+          "https://food.snapp.ir/restaurant?category=33&page=0&section=SERVICES&superType=1&utm_campaign=beynolmelali&utm_medium=categories&utm_source=foodlanding",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/6.png",
       },
       {
         label: "غذای ملل",
-        route: "",
+        route:
+          "https://food.snapp.ir/restaurant?category=14&page=0&section=SERVICES&superType=1&utm_source=foodlanding&utm_medium=categories&utm_campaign=beynolmelali",
         icon: <TrainFront size={30} />,
         coverImage: activatedRoute.split("/")[2] + "/7.png",
       },
